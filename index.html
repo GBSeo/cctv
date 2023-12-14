@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>CCTV</title>
+	<style>
+		body{
+			background: black;
+      margin: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh; /* 뷰포트 높이의 100%로 설정 */
+		}
+    video {
+      width: 50%;
+      height: auto;
+    }
+	</style>
+</head>
+<body>
+	  <video id="myVideo" controls>
+    <source src="cctv.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+
+  <script>
+    const video = document.getElementById('myVideo');
+
+    // 비디오가 종료되면 다시 시작하도록 설정
+    video.addEventListener('ended', function () {
+      video.currentTime = 0;
+      video.play();
+    });
+
+    // 페이지 로드 시 비디오 재생 시작
+    window.onload = function () {
+      video.play();
+    };
+  </script>
+
+</body>
+</html>
